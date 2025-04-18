@@ -21,7 +21,7 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 //DB Connection
-const dbUrl = process.env.ATLASDB_URL || "mongodb://localhost:27017/real-estate-app";
+const dbUrl = process.env.ATLASDB_URL;
 
 main()
   .then(() => {
