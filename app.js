@@ -21,18 +21,19 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 //DB Connection
-const dbUrl = process.env.ATLASDB_URL;
+const dbUrl = process.env.ATLASDB_URL || "mongodb://localhost:27017/real-estate-app";
 
 main()
   .then(() => {
     console.log("connection sucessfull");
   })
   .catch((err) => console.log(err));
+
 async function main() {
   await mongoose.connect(dbUrl);
 }
 
-app.set("view engine ", "ejs");
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
